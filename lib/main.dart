@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 
 // void main() { runApp(); }
 void main() => runApp(MaterialApp(
@@ -17,27 +18,6 @@ class _Home extends State<Home> {
 
   List<Quote> quotes = [ Quote('test 1'), Quote('test 2'), Quote('test 3')];
 
-
-// ReturnType FunctionName(input)
-  Widget quoteTemplate(quote) {
-      return Card(
-          margin: EdgeInsets.all(20),
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(
-                children: <Widget> [
-                  Text(
-                      quote.text,
-                      style: TextStyle(
-                          color: Colors.blue[400]
-                      ),
-                  ),
-                  SizedBox(height: 6.0)
-              ],
-            ),
-          )
-      );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +56,14 @@ class _Home extends State<Home> {
           ),
           Row(
             children: quotes.map((quote) {
-                return quoteTemplate(quote);
+                return QuoteCard(
+                    quote: quote,
+                    delete: () {
+                        setState(() {
+                            quotes.remove(quote);
+                        });
+                    }
+                );
             }).toList()
             
           )
@@ -99,6 +86,7 @@ class _Home extends State<Home> {
     );
   }
 }
+
 
 class BottomNavigationBar extends StatelessWidget {
   const BottomNavigationBar({
