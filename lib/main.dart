@@ -17,6 +17,28 @@ class _Home extends State<Home> {
 
   List<Quote> quotes = [ Quote('test 1'), Quote('test 2'), Quote('test 3')];
 
+
+// ReturnType FunctionName(input)
+  Widget quoteTemplate(quote) {
+      return Card(
+          margin: EdgeInsets.all(20),
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Column(
+                children: <Widget> [
+                  Text(
+                      quote.text,
+                      style: TextStyle(
+                          color: Colors.blue[400]
+                      ),
+                  ),
+                  SizedBox(height: 6.0)
+              ],
+            ),
+          )
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +76,7 @@ class _Home extends State<Home> {
           ),
           Row(
             children: quotes.map((quote) {
-                return Text('${quote.text}');
+                return quoteTemplate(quote);
             }).toList()
             
           )
