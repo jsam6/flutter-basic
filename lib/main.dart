@@ -17,10 +17,31 @@ class Home extends StatelessWidget {
                 ),
                 centerTitle: true,
                 backgroundColor: Colors.green[600]),
-                body: Container(
-                    padding: EdgeInsets.symmetric(vertical: 10 , horizontal:  100),
-                    color: Colors.red[100],
-                    child: Text('hello')
+                body: Row(
+                    children: [
+                        Expanded(
+                            flex: 1,
+                            child: Image.asset('assets/background-image.jpeg'),
+                        ),
+                        Expanded(
+                            flex: 2,
+                            child: Container(
+                                padding: EdgeInsets.all(30),
+                                color: Colors.red,
+                                child: Text('1')
+                            ),
+                        ),
+                        Container(
+                            padding: EdgeInsets.all(30),
+                            color: Colors.blue,
+                            child: Text('2')
+                        ),
+                        Container(
+                            padding: EdgeInsets.all(30),
+                            color: Colors.green,
+                            child: Text('3')
+                        ),
+                    ],
                 ),
 
                 floatingActionButton: FloatingActionButton(
@@ -63,6 +84,7 @@ class BottomNavigationBar extends StatelessWidget {
         child: IconTheme(
             data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
             child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                     IconButton(
                         tooltip: 'Open navigation menu',
@@ -70,13 +92,13 @@ class BottomNavigationBar extends StatelessWidget {
                         onPressed: () {},
                     ),
                     IconButton(
-                        tooltip: 'Search',
-                        icon: const Icon(Icons.search),
+                        tooltip: 'Favorite',
+                        icon: const Icon(Icons.favorite),
                         onPressed: () {},
                     ),
                     IconButton(
-                        tooltip: 'Favorite',
-                        icon: const Icon(Icons.favorite),
+                        tooltip: 'Search',
+                        icon: const Icon(Icons.search),
                         onPressed: () {},
                     ),
                 ],
