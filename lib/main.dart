@@ -16,9 +16,15 @@ class Home extends StatelessWidget {
                     fontFamily: 'ShadowsIntoLight',)
                 ),
                 centerTitle: true,
-                backgroundColor: Colors.green[600],),
+                backgroundColor: Colors.green[600]),
                 body: Center(
-                    child: Image.asset('assets/background-image.jpeg')
+                    child: RaisedButton.icon(
+                        onPressed: () {
+                            print('email me');
+                        },
+                        icon: Icon( Icons.mail ),
+                        label: Text('Email'),
+                    )
                 ),
 
                 floatingActionButton: FloatingActionButton(
